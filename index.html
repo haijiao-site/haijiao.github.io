@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海角社区 - 最新网址发布页</title>
+    <!-- <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+    <style>
+        /* @import url('../../fonts.googleapis.com/css2%3Ffamily=Noto+Sans+SC:wght@300%3B400%3B500%3B700&display=swap.css'); */
+        
+        :root {
+            --primary-color: #4361ee;
+            --primary-light: #4895ef;
+            --primary-dark: #3a0ca3;
+            --secondary-color: #f72585;
+            --text-color: #2b2d42;
+            --text-light: #8d99ae;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --accent-color: #4cc9f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        header {
+            text-align: center;
+            padding: 10px 0 30px;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+        
+        h1 {
+            color: var(--primary-dark);
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .site-title {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .site-title i {
+            color: var(--secondary-color);
+        }
+        
+        .content {
+            padding: 20px 0;
+        }
+        
+        .address-box {
+            background: linear-gradient(145deg, #ffffff, #f0f7ff);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(65, 84, 241, 0.1);
+            position: relative;
+        }
+        
+        .address-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .address-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 3px solid var(--primary-color);
+            box-shadow: 0 8px 20px rgba(65, 84, 241, 0.15);
+        }
+        
+        .address-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .address-item p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+        }
+        
+        .address-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        
+        .address-item a:hover {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-dark);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+        }
+        
+        .contact {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(145deg, #ffffff, #f0f7ff);
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(65, 84, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+        }
+        
+        .tips {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(145deg, #ffffff, #f0f7ff);
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(65, 84, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tips::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+        
+        .tips ul, .tips ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        .tips li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .tips li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(67, 97, 238, 0.15));
+            color: var(--primary-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title i {
+            color: var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            color: var(--text-light);
+            font-size: 14px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+                width: auto;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .address-item p {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .address-item strong {
+                margin-bottom: 5px;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(247, 37, 133, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(247, 37, 133, 0);
+            }
+        }
+        
+        .new-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 12px;
+            color: #fff;
+            background-color: var(--secondary-color);
+            border-radius: 12px;
+            margin-left: 8px;
+            vertical-align: middle;
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-globe"></i>海角社区-网址发布页</h1>
+        </header>
+
+        <div class="content">
+            <div class="address-box">
+                <div class="site-title"><i class="fas fa-link"></i> 访问地址</div>
+                <div class="address-item">
+                    <p><strong><i class="fas fa-certificate"></i> 最新域名：</strong><a href="https://www.pc-haijiao.com" target="_blank">https://pc-haijiao.com</a><span class="new-badge">推荐</span></p>
+                </div>
+                <div class="address-item">
+                    <p><strong><i class="fas fa-sync-alt"></i> 备用域名：</strong><a href="https://www.m-haijiao.com" target="_blank">https://m-haijiao.com</a></p>
+                </div>
+                <div class="address-item">
+                    <p><strong><i class="fas fa-sync-alt"></i> APP下载地址：</strong><a href="https://svd.29zdtqpq.top?channelCode=4VIEW1CZ" target="_blank">https://hj.29zdtqpq.top</a></p>
+                </div>
+                <div class="address-item">
+                    <p><strong><i class="fas fa-plane"></i> 海外访问域名：</strong><a href="https://www.haijiao.ws" target="_blank">https://haijiao.ws</a></p>
+                </div>
+                <div class="address-item">
+                    <p><strong><i class="fas fa-infinity"></i> 永久发布页地址：</strong><a href="https://haijiao.github.io/haijiao" target="_blank">https://haijiao.github.io/haijiao</a></p>
+                </div>
+            </div>
+
+            <div class="contact">
+                <div class="section-title"><i class="fas fa-envelope"></i> 联络邮件</div>
+                <p><a href="mailto:share91admin@126.com"><i class="fas fa-at"></i> share91admin@126.com</a></p>
+                <p><i class="fas fa-info-circle"></i> 发送邮件获取新地址，请检查垃圾邮箱</p>
+            </div>
+
+            <div class="tips">
+                <div class="section-title"><i class="fas fa-lightbulb"></i> 温馨提示</div>
+                <ul>
+                    <li><i class="fas fa-window-maximize"></i> 为获得最佳浏览体验，推荐使用 <span class="highlight">Chrome</span>、<span class="highlight">Firefox</span> 或 <span class="highlight">Safari</span> 等现代浏览器访问本站。本站兼容 <span class="highlight">Chrome 74</span> 及以上版本。</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>重要提示：本页面提供的网址除了海外访问地址，其余均为可直接访问地址，无需使用代理工具。</strong></li>
+                    <li><i class="fas fa-bookmark"></i> 建议收藏本页面地址，方便日后访问。</li>
+                </ul>
+                <div class="section-title"><i class="fas fa-save"></i> 如何收藏本页面：</div>
+                <ol>
+                    <li><i class="fas fa-desktop"></i> 使用电脑的用户，请按键盘上的 <span class="highlight">CTRL+D</span> 进行收藏</li>
+                    <li><i class="fab fa-apple"></i> 苹果手机用户在浏览器点击分享图标，然后选择“添加到个人收藏”或“添加到主屏幕”</li>
+                    <li><i class="fab fa-android"></i> 安卓手机用户点击三点菜单，然后选择“添加到书签”或“添加到主屏幕”</li>
+                </ol>
+            </div>
+        </div>
+
+        <footer>
+            <p><i class="far fa-copyright"></i> 2025 haijiao | 本页面所有内容仅供参考，请遵守当地法律法规</p>
+        </footer>
+    </div>
+</body>
+</html>
